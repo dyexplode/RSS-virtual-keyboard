@@ -330,7 +330,7 @@ export default [
     keyCode: 'Slash',
   },
   {
-    main: '&tarr;',
+    main: '&uarr;',
     alternate: null,
     keyCode: 'ArrowUp',
   },
