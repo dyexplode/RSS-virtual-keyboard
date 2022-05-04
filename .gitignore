@@ -1,0 +1,7 @@
+# Ignore sass map files
+*.map
+
+# Dependency directories
+node_modules
+
+package-lock.json
