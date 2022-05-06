@@ -1,0 +1,32 @@
+.keystring {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    //column-gap: 10px;
+}
+
+.key{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    background-color: #555;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    &:hover{
+        background-color: #DDD;
+    }
+}
+
+.main-key{
+    font-weight: bold;
+    font-size: 1em;
+    
+}
+
+.alter{
+    align-self: flex-start;
+    padding: 2px;
+    font-size: 0.8em;
+}

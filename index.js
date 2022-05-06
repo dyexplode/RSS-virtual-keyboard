@@ -1,13 +1,18 @@
 /* eslint-disable import/extensions */
-import create from './js/utils/create.js';
+import xD from './js/utils/xD.js';
 import getDOM from './js/utils/getDOM.js';
+// import xD from './js/utils/create.js';
 import en from './js/keystyle/en.js';
+import ru from './js/keystyle/ru.js';
 
 const BODY = document.querySelector('body');
 BODY.addEventListener('click', () => {});
 BODY.prepend(getDOM());
 document.addEventListener('keydown', (e) => {
-  console.log(e);
+  console.log('keyDown', e);
+});
+document.addEventListener('keyup', (e) => {
+  console.log('keyUp', e);
 });
 
 const keyLayout = [['Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12', 'Delete'],
@@ -17,8 +22,8 @@ const keyLayout = [['Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F
   ['ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight'],
   ['ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'MetaRight', 'ContextMenu', 'ControlRight', 'ArrowLeft', 'ArrowDown', 'ArrowRight']];
 
-const keyCont = document.querySelector('#keyboard');
-keyCont.append(...keyLayout.map((keys) => create('div', 'keystring', keys.map((key) => {
-  const item = en.find((el) => el.keyCode === key);
-  return create('div', 'key', [create('div', 'alter', item.alternate), create('div', 'main-key', item.main)]);
-}))));
+xD('#keyboard').aChilds(keyLayout.map((keys) => xD.create('div', 'keystring').aChilds(keys.map((key) => {
+  const item = ru.find((el) => el.keyCode === key);
+  return xD.create('div', 'key').aChilds([xD.create('div', 'alter').aChilds(item.alternate).getNode(),
+    xD.create('div', 'main-key').aChilds(item.main).getNode()]).getNode();
+})).getNode())).getNode();
