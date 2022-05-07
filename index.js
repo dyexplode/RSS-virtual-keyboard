@@ -4,6 +4,7 @@ import getDOM from './js/utils/getDOM.js';
 // import xD from './js/utils/create.js';
 import en from './js/keystyle/en.js';
 import ru from './js/keystyle/ru.js';
+import Keyboard from './js/core/Keyboard.js';
 
 const BODY = document.querySelector('body');
 BODY.addEventListener('click', () => {});

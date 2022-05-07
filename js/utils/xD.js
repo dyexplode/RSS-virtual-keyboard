@@ -1,4 +1,5 @@
 class CDOM {
+
   // Select tag from DOM or add tag
   constructor(selectNode) {
     this.xD_elem = (typeof selectNode === 'string')
@@ -6,6 +7,7 @@ class CDOM {
       : selectNode;
   }
 
+  // Get Node from CDOM class
   getNode() {
     return this.xD_elem;
   }
@@ -23,7 +25,8 @@ class CDOM {
   clear() {
     return this.html('');
   }
-
+  
+  // Add childs or child or text content
   aChilds(childs) {
     if (childs && Array.isArray(childs)) {
       childs.forEach((childElement) => childElement && this.xD_elem.appendChild(childElement));
@@ -35,6 +38,7 @@ class CDOM {
     return this;
   }
 
+  // Add parent for this Node in CDOM class
   aParent(parent) {
     if (parent) {
       parent.appendChild(this.xD_elem);
@@ -42,6 +46,7 @@ class CDOM {
     return this;
   }
 
+  // Add attribute for this Node in CDOM class
   aAttributes(...attribs) {
     if (attribs.length) {
       attribs.forEach(([attrName, attrValue]) => {
