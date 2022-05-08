@@ -37,6 +37,19 @@ class CDOM {
     return this;
   }
 
+  // Add class for Node
+  aClass(classes) {
+    if (classes) {
+      this.xD_elem.classList.add(...classes.split(' '));
+    }
+  }
+
+  rClass(classes) {
+    if (classes) {
+      this.xD_elem.classList.remove(...classes.split(' '));
+    }
+  }
+
   // Add parent for this Node in CDOM class
   aParent(parent) {
     if (parent) {
@@ -67,13 +80,14 @@ export default function xD(selector) {
 }
 
 xD.create = (tagName, classes = '') => {
-  const el = document.createElement(tagName);
+  let el;
+  try {
+    el = document.createElement(tagName);
+  } catch (error) {
+    throw new Error(`Tag Name ${tagName} is not valid in create.add function`);
+  }
   if (classes) {
-    try {
-      el.classList.add(...classes.split(' '));
-    } catch (error) {
-      throw new Error(`Tag Name ${tagName} is not valid in create.add function`);
-    }
+    el.classList.add(...classes.split(' '));
   }
   return xD(el);
 };

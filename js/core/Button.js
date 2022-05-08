@@ -7,6 +7,8 @@ export default class Button {
   constructor(keyCode, language) {
     this.code = keyCode;
     const item = keyLangs[language].find((el) => el.keyCode === keyCode);
+    this.main = item.main;
+    this.alternative = item.alternative;
     this.mainDiv = xD.create('div', 'main').aChilds(item.main).getNode();
     this.alterDiv = xD.create('div', 'alter').aChilds(item.alternative).getNode();
     this.content = xD.create('div', 'key').aAttributes(['keyCode', keyCode]).aChilds([this.alterDiv, this.mainDiv]).getNode();

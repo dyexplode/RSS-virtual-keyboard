@@ -463,4 +463,8 @@ main {
   padding: 2px;
   font-size: 0.8em;
 }
+
+.pressed {
+  background-color: red;
+}
 /*# sourceMappingURL=style.css.map */

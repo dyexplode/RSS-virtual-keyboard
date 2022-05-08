@@ -2,8 +2,6 @@
 /* eslint-disable import/extensions */
 // import xD from './js/utils/xD.js';
 import getDOM from './js/utils/getDOM.js';
-// import en from './js/keystyle/en.js';
-// import ru from './js/keystyle/ru.js';
 import Keyboard from './js/core/Keyboard.js';
 import * as storage from './js/utils/storage.js';
 
@@ -17,13 +15,6 @@ const keyLayout = [['Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F
   ['CapsLock', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'Backslash'],
   ['ShiftLeft', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Comma', 'Period', 'Slash', 'ArrowUp', 'ShiftRight'],
   ['ControlLeft', 'MetaLeft', 'AltLeft', 'Space', 'AltRight', 'MetaRight', 'ContextMenu', 'ControlRight', 'ArrowLeft', 'ArrowDown', 'ArrowRight']];
-/*
-xD('#keyboard').aChilds(keyLayout.map((keys) => xD.create('div', 'keystring').aChilds(keys.map((key) => {
-  const item = ru.find((el) => el.keyCode === key);
-  return xD.create('div', 'key').aChilds([xD.create('div', 'alter').aChilds(item.alternate).getNode(),
-    xD.create('div', 'main-key').aChilds(item.main).getNode()]).getNode();
-})).getNode())).getNode();
-*/
 
 // eslint-disable-next-line no-new
-new Keyboard(keyLayout).init(storage.pull('kLng')).draw();
+new Keyboard(keyLayout).init(storage.pull('kLng'));

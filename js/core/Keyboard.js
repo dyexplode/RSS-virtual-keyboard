@@ -7,15 +7,6 @@ export default class Keyboard {
     this.keyLayout = keyLayout;
     this.buttonsPressed = new Set();
     this.isCapsPressed = false;
-    /*
-    document.addEventListener('keydown', (e) => {
-      console.log('keyDown', e);
-    });
-
-    document.addEventListener('keyup', (e) => {
-      console.log('keyUp', e);
-    });
-    */
   }
 
   init(language) {
@@ -27,11 +18,9 @@ export default class Keyboard {
         ['spellcheck', 'false'],
         ['placeholder', 'Press any key on virtual keyboard or real keyboard for starts...'],
       ).getNode();
-    return this;
-  }
 
-  draw() {
-    xD('#keyboard')
+    // Render Keyboard in container
+    this.container = xD('#keyboard')
       .aChilds(this.keyLayout.map((keystring) => xD.create('div', 'keystring')
         .aChilds(keystring.map((keyCode) => {
           // console.log(keyCode, this.language);
@@ -40,5 +29,43 @@ export default class Keyboard {
           return btn.content;
         })).getNode())).getNode();
     this.display.focus();
+    document.addEventListener('keydown', this.processEvent);
+    document.addEventListener('keyup', this.processEvent);
+    this.container.addEventListener('mousedown', this.processEvent);
+    this.container.addEventListener('mouseup', this.processEvent);
+    this.container.addEventListener('mouseleave', this.processEvent);
+    return this;
+  }
+
+  // Processing event key
+  processEvent = (event) => {
+    event.stopPropagation();
+    const { code, type } = event;
+    const btn = this.buttons.find((item) => item.code === code);
+    if (!btn) return;
+    this.display.focus();
+    console.log(event, btn);
+    // Pressdown button
+    if (type.match(/keydown|mousedown/)) {
+      if (!type.match(/mouse/)) event.preventDefault();
+      xD(btn.content).aClass('pressed');
+      this.printToDisplay(btn.main);
+    }
+
+    // UnPress button
+    if (type.match(/keyup|mouseup/)) {
+      if (!type.match(/mouse/)) event.preventDefault();
+      xD(btn.content).rClass('pressed');
+    }
+  };
+
+  // Print to textarea
+  printToDisplay(char) {
+    let cursor = this.display.selectionStart;
+    const left = this.display.value.slice(0, cursor);
+    const right = this.display.value.slice(cursor);
+    this.display.value = `${left}${char}${right}`;
+    cursor += 1;
+    this.display.setSelectionRange(cursor, cursor);
   }
 }
