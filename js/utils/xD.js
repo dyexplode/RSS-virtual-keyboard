@@ -1,5 +1,4 @@
 class CDOM {
-
   // Select tag from DOM or add tag
   constructor(selectNode) {
     this.xD_elem = (typeof selectNode === 'string')
@@ -25,7 +24,7 @@ class CDOM {
   clear() {
     return this.html('');
   }
-  
+
   // Add childs or child or text content
   aChilds(childs) {
     if (childs && Array.isArray(childs)) {
