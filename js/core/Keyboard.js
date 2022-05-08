@@ -49,7 +49,9 @@ export default class Keyboard {
     if (type.match(/keydown|mousedown/)) {
       if (!type.match(/mouse/)) event.preventDefault();
       xD(btn.content).aClass('pressed');
-      this.printToDisplay(btn.main);
+      this.printToDisplay(btn, btn.main);
+      if (code.match(/Shift/)) this.isShiftPressed = true;
+      if (code.match(/Caps/) && !this.isCapsPressed) this.isCapsPressed = true;
     }
 
     // UnPress button
@@ -60,12 +62,36 @@ export default class Keyboard {
   };
 
   // Print to textarea
-  printToDisplay(char) {
+  printToDisplay(btn, char) {
     let cursor = this.display.selectionStart;
     const left = this.display.value.slice(0, cursor);
     const right = this.display.value.slice(cursor);
-    this.display.value = `${left}${char}${right}`;
-    cursor += 1;
+    const redirectKeys = {
+      Space: () => {
+        this.display.value = `${left} ${right}`;
+        cursor += 1;
+      },
+      Enter: () => {
+        this.display.value = `${left}\n${right}`;
+        cursor += 1;
+      },
+      Tab: () => {
+        this.display.value = `${left}\t${right}`;
+        cursor += 1;
+      },
+      Delete: () => {
+        this.display.value = `${left}${right.slice(1)}`;
+      },
+      Backspace: () => {
+        this.display.value = `${left.slice(0, -1)}${right}`;
+        cursor -= 1;
+      },
+    };
+    if (redirectKeys[btn.code]) redirectKeys[btn.code]();
+    if (!btn.functional) {
+      this.display.value = `${left}${char}${right}`;
+      cursor += 1;
+    }
     this.display.setSelectionRange(cursor, cursor);
   }
 }

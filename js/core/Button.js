@@ -12,6 +12,7 @@ export default class Button {
     this.mainDiv = xD.create('div', 'main').aChilds(item.main).getNode();
     this.alterDiv = xD.create('div', 'alter').aChilds(item.alternative).getNode();
     this.content = xD.create('div', 'key').aAttributes(['keyCode', keyCode]).aChilds([this.alterDiv, this.mainDiv]).getNode();
+    this.functional = Boolean(keyCode.match(/Esc|Backspace|Tab|Caps|Enter|Shift|Ctrl|Alt|Meta|Arrow|Delete/));
   }
 
   update(language) {
