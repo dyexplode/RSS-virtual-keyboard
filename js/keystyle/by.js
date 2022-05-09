@@ -347,7 +347,7 @@ export default [
   {
     main: 'Win',
     alternate: null,
-    keyCode: 'MetaLeft', // OSLeft
+    keyCode: 'MetaLeft',
   },
   {
     main: 'Alt',
@@ -356,7 +356,7 @@ export default [
   },
   {
     main: ' ',
-    alternate: ' ',
+    alternate: null,
     keyCode: 'Space',
   },
   {
@@ -367,10 +367,10 @@ export default [
   {
     main: 'Win',
     alternate: null,
-    keyCode: 'MetaRight', // OSRight
+    keyCode: 'MetaRight',
   },
   {
-    main: 'CMenu',
+    main: 'Menu',
     alternate: null,
     keyCode: 'ContextMenu',
   },

@@ -64,7 +64,7 @@ class CDOM {
       attribs.forEach(([attrName, attrValue]) => {
         if (attrValue === '') {
           this.xD_elem.setAttribute(attrName, '');
-        } else if (attrName.match(/value|id|placeholder|cols|rows|autocorrect|spellcheck|src|alt/)) {
+        } else if (attrName.match(/value|id|placeholder|cols|rows|autocorrect|spellcheck|src|alt|href/)) {
           this.xD_elem.setAttribute(attrName, attrValue);
         } else {
           this.xD_elem.dataset[attrName] = attrValue;

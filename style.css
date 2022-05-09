@@ -354,7 +354,7 @@ body {
 }
 
 .wrapper {
-  width: 1280px;
+  width: 1080px;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -366,10 +366,12 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #cccccc;
 }
 
 .header {
   margin: 20px 40px;
+  text-align: center;
 }
 
 .logo {
@@ -403,8 +405,13 @@ main {
   row-gap: 30px;
 }
 
+.text-display {
+  padding: 10px;
+}
+
 .keyboard-container {
   width: 900px;
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -416,6 +423,9 @@ main {
       -ms-flex-align: stretch;
           align-items: stretch;
   row-gap: 10px;
+  border: 2px solid #555;
+  border-radius: 15px;
+  background-color: #a5a5a5;
 }
 
 .keystring {
@@ -426,15 +436,17 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
 }
 
 .key {
-  width: 50px;
-  height: 50px;
+  min-width: 45px;
+  height: 45px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #555;
+  background-color: #777;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -446,13 +458,23 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  border-radius: 5px;
+  -webkit-box-shadow: 10px 5px 5px #333;
+          box-shadow: 10px 5px 5px #333;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .key:hover {
-  background-color: #DDD;
+  color: #DDD;
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  background-color: #5e5e5e;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-.main-key {
+.main {
   font-weight: bold;
   font-size: 1em;
 }
@@ -461,10 +483,50 @@ main {
   -ms-flex-item-align: start;
       align-self: flex-start;
   padding: 2px;
-  font-size: 0.8em;
+  font-size: 0.7em;
 }
 
 .pressed {
-  background-color: red;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-box-shadow: 5px 2px 2px black;
+          box-shadow: 5px 2px 2px black;
+  background-color: #919191;
+  color: lightgreen;
+}
+
+.pressed:hover {
+  background-color: #5e5e5e;
+  color: lightgreen;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.key[data-functional=true] {
+  background-color: #515151;
+}
+
+.key[data-key-code=ShiftLeft], .key[data-key-code=ShiftRight] {
+  min-width: 120px;
+}
+
+.key[data-key-code=Space] {
+  min-width: 290px;
+}
+
+.key[data-key-code=CapsLock] {
+  min-width: 100px;
+}
+
+.key[data-key-code=Tab] {
+  min-width: 80px;
+}
+
+.key[data-key-code=Enter] {
+  min-width: 100px;
+}
+
+.key[data-key-code=Backspace] {
+  min-width: 100px;
 }
 /*# sourceMappingURL=style.css.map */

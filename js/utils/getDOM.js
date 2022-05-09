@@ -6,7 +6,7 @@ export default function getDOM() {
     xD.create('header', 'header')
       .aChilds([
         xD.create('h1', 'title')
-          .aChilds('RSS Virtual Keyboard &larr;')
+          .aChilds('&rarr; RSS Virtual Keyboard &larr;')
           .getNode(),
         xD.create('p', 'description')
           .aChilds('This keyboard create on win10 and xubuntu.')
@@ -22,10 +22,16 @@ export default function getDOM() {
           .getNode()])
       .getNode(),
     xD.create('footer', 'footer')
-      .aChilds(
+      .aChilds([
+        xD.create('div', 'git')
+          .aChilds(xD.create('a')
+            .aChilds('My GitHub')
+            .aAttributes(['href', 'https://github.com/dyexplode/RSS-virtual-keyboard'])
+            .getNode())
+          .getNode(),
         xD.create('div', 'footer-content')
           .aChilds('Change language Ctrl(left) + Shift(left)')
           .getNode(),
-      ).getNode()])
+      ]).getNode()])
     .getNode();
 }
