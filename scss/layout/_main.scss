@@ -1,0 +1,26 @@
+@import '../abstract/variables';
+.main-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+}
+
+.text-display {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 17px;
+}
+
+.keyboard-container{
+    width: 900px;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: 10px;
+    border: 2px solid #555;
+    border-radius: 15px;
+    background-color: darken($color-background, 5%);
+}

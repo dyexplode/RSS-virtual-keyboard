@@ -1,0 +1,89 @@
+@import '../abstract/variables';
+
+.keystring {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+
+.key{
+    min-width: 45px;
+    height: 45px;
+    display: flex;
+    background-color: $color-button;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px $color-shadow-button;
+    transition: 0.4s;
+    cursor: pointer;
+    &:hover{
+        color: $color-hover-text-button;
+        transform: scale(1.05);
+        background-color: darken($color-button, 10%);
+        transition: 0.4s;
+    }
+}
+
+.main{
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+
+.alter{
+    align-self: flex-start;
+    padding: 2px;
+    font-size: 0.7em;
+}
+
+.pressed {
+    transform: scale(0.9);
+    box-shadow: 5px 2px 2px darken($color-shadow-button, 20%);
+    background-color: lighten($color-button, 10%);
+    color: $color-button-mouse-press;
+    &:hover{
+        background-color: darken($color-button, 10%);
+        color: $color-button-mouse-press;
+        transform: scale(0.9);
+    }
+}
+
+.key[data-functional = true] {
+    background-color: darken($color-button, 15%);
+}
+
+.key[data-key-code = ShiftLeft], .key[data-key-code = ShiftRight]{
+    min-width: 120px;
+}
+
+.key[data-key-code = Space] {
+    min-width: 260px;
+}
+
+.key[data-key-code = CapsLock] {
+    min-width: 100px;
+}
+
+.key[data-key-code = Tab] {
+    min-width: 80px;
+}
+
+.key[data-key-code = Enter] {
+    min-width: 100px;
+}
+
+.key[data-key-code = Backspace] {
+    min-width: 130px;
+}
+
+.key[data-key-code = Delete] {
+    min-width: 60px;
+}
+
+.key[data-key-code = ContextMenu] {
+    min-width: 55px;
+}
