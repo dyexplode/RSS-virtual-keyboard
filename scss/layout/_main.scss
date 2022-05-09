@@ -1,5 +1,5 @@
 @import '../abstract/variables';
-main {
+.main-container {
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -9,6 +9,8 @@ main {
 
 .text-display {
     padding: 10px;
+    border-radius: 10px;
+    font-size: 17px;
 }
 
 .keyboard-container{

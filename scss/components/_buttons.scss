@@ -19,6 +19,7 @@
     border-radius: 5px;
     box-shadow: 10px 5px 5px $color-shadow-button;
     transition: 0.4s;
+    cursor: pointer;
     &:hover{
         color: $color-hover-text-button;
         transform: scale(1.05);
@@ -29,7 +30,7 @@
 
 .main{
     font-weight: bold;
-    font-size: 1em;
+    font-size: 18px;
     
 }
 
@@ -60,7 +61,7 @@
 }
 
 .key[data-key-code = Space] {
-    min-width: 290px;
+    min-width: 260px;
 }
 
 .key[data-key-code = CapsLock] {
@@ -76,5 +77,13 @@
 }
 
 .key[data-key-code = Backspace] {
-    min-width: 100px;
+    min-width: 130px;
+}
+
+.key[data-key-code = Delete] {
+    min-width: 60px;
+}
+
+.key[data-key-code = ContextMenu] {
+    min-width: 55px;
 }

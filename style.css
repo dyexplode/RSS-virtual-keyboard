@@ -355,6 +355,7 @@ body {
 
 .wrapper {
   width: 1080px;
+  height: 100vh;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -367,6 +368,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background-color: #cccccc;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .header {
@@ -390,7 +392,7 @@ body {
           align-items: center;
 }
 
-main {
+.main-container {
   margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -407,6 +409,8 @@ main {
 
 .text-display {
   padding: 10px;
+  border-radius: 10px;
+  font-size: 17px;
 }
 
 .keyboard-container {
@@ -463,6 +467,7 @@ main {
           box-shadow: 10px 5px 5px #333;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  cursor: pointer;
 }
 
 .key:hover {
@@ -476,7 +481,7 @@ main {
 
 .main {
   font-weight: bold;
-  font-size: 1em;
+  font-size: 18px;
 }
 
 .alter {
@@ -511,7 +516,7 @@ main {
 }
 
 .key[data-key-code=Space] {
-  min-width: 290px;
+  min-width: 260px;
 }
 
 .key[data-key-code=CapsLock] {
@@ -527,6 +532,29 @@ main {
 }
 
 .key[data-key-code=Backspace] {
-  min-width: 100px;
+  min-width: 130px;
+}
+
+.key[data-key-code=Delete] {
+  min-width: 60px;
+}
+
+.key[data-key-code=ContextMenu] {
+  min-width: 55px;
+}
+
+.footer {
+  width: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.git a {
+  text-decoration: none;
+  color: black;
 }
 /*# sourceMappingURL=style.css.map */

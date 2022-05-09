@@ -9,10 +9,10 @@ export default function getDOM() {
           .aChilds('&rarr; RSS Virtual Keyboard &larr;')
           .getNode(),
         xD.create('p', 'description')
-          .aChilds('This keyboard create on win10 and xubuntu.')
+          .aChilds('This keyboard create on windows 10.')
           .getNode()])
       .getNode(),
-    xD.create('main', 'main')
+    xD.create('main', 'main-container')
       .aChilds([
         xD.create('textarea', 'text-display')
           .aAttributes(['rows', '10'], ['cols', '100'])
@@ -31,6 +31,9 @@ export default function getDOM() {
           .getNode(),
         xD.create('div', 'footer-content')
           .aChilds('Change language Ctrl(left) + Shift(left)')
+          .getNode(),
+        xD.create('div', 'copy')
+          .aChilds('&copy; 2022')
           .getNode(),
       ]).getNode()])
     .getNode();
